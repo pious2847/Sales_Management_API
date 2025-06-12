@@ -1,7 +1,7 @@
 {
-  "name": "Sales_Management_API",
+  "name": "sales-management-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Sales Management API for small businesses",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
@@ -11,16 +11,15 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.4.1",
   "dependencies": {
-    "bcryptjs": "^3.0.2",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
-    "dotenv": "^16.5.0",
-    "express": "^5.1.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.15.1"
+    "mongoose": "^7.6.3"
   },
   "devDependencies": {
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.0.1"
   }
 }
