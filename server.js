@@ -27,10 +27,11 @@ app.use('/api/expenses', expenseRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).json({
-        error: 'Something went wrong!',
-        message: process.env.NODE_ENV === 'development' ? err.message : undefined
+    console.error('Server Error:', err);
+    const statusCode = err.statusCode || 500;
+    res.status(statusCode).json({
+        error: err.message || 'Something went wrong!',
+        ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
     });
 });
 
