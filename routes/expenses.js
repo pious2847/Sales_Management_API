@@ -16,4 +16,9 @@ router.put('/:id', auth, adminAuth, expenseController.updateExpense);
 // Delete expense (admin only)
 router.delete('/:id', auth, adminAuth, expenseController.deleteExpense);
 
+// Analytics and reporting endpoints
+router.get('/stats/expenses', auth, adminAuth, expenseController.getExpenseStats);
+router.get('/analytics/expenses', auth, adminAuth, expenseController.getExpenseAnalytics);
+router.get('/total', auth, adminAuth, expenseController.getTotalExpenses);
+
 module.exports = router;

@@ -11,6 +11,11 @@ const expenseRoutes = require('./routes/expenses');
 
 const app = express();
 
+// Set default environment variables if not provided
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+process.env.MONGODB_URI_DEV = process.env.MONGODB_URI_DEV || 'mongodb://localhost:27017/sales_management';
+process.env.MONGODB_URI_PROD = process.env.MONGODB_URI_PROD || 'mongodb://localhost:27017/sales_management';
+
 // Connect to MongoDB
 connectDB();
 
@@ -24,6 +29,11 @@ app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/sales', saleRoutes);
 app.use('/api/expenses', expenseRoutes);
+
+// Test endpoint to verify server is working
+app.get('/api/test', (req, res) => {
+    res.json({ message: 'Server is running!', timestamp: new Date().toISOString() });
+});
 
 // Error handling middleware
 app.use((err, req, res, next) => {
